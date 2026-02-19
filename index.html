@@ -1,1 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — CareerClutch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0A12;
+            --surface: #12121E;
+            --card: #1A1A2E;
+            --border: #2A2A3E;
+            --text: #E8E8F0;
+            --text-secondary: #9090A8;
+            --text-muted: #60607A;
+            --crimson: #E94560;
+            --teal: #00D9FF;
+            --purple: #7C5CFF;
+            --amber: #FFB347;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb.crimson { background: var(--crimson); top: -200px; right: -100px; }
+        .glow-orb.teal { background: var(--teal); bottom: -200px; left: -100px; }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 48px;
+        }
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--crimson), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            font-family: 'Fraunces', serif;
+        }
+        .brand-name {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .effective-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 3px solid var(--crimson);
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 15px;
+        }
+
+        .highlight-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .highlight-card.teal { border-left: 3px solid var(--teal); }
+        .highlight-card.amber { border-left: 3px solid var(--amber); }
+        .highlight-card.crimson { border-left: 3px solid var(--crimson); }
+
+        .highlight-card p { margin-bottom: 6px; }
+        .highlight-card p:last-child { margin-bottom: 0; }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .badge.teal { background: rgba(0,217,255,0.12); color: var(--teal); }
+        .badge.crimson { background: rgba(233,69,96,0.12); color: var(--crimson); }
+
+        ul {
+            color: var(--text-secondary);
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 14px;
+        }
+        ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            font-size: 15px;
+        }
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        table th {
+            text-align: left;
+            padding: 10px 14px;
+            background: var(--card);
+            color: var(--text);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border);
+        }
+        table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--card), var(--surface));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        .contact-card a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 48px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 32px 16px 60px; }
+            h2 { font-size: 19px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="glow-orb crimson"></div>
+    <div class="glow-orb teal"></div>
+
+    <div class="container">
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <span class="brand-name">CareerClutch</span>
+        </div>
+
+        <h1>Privacy Policy</h1>
+        <p class="effective-date">Effective Date: February 19, 2026 &nbsp;|&nbsp; Last Updated: February 19, 2026</p>
+
+        <p>CareerClutch ("we", "our", "us") is an AI-powered interview preparation app designed for job seekers. We take your privacy seriously — especially because you trust us with sensitive career data like resumes and interview answers.</p>
+
+        <div class="highlight-card teal">
+            <p><strong>🔒 TL;DR — Our Core Privacy Promise:</strong></p>
+            <p>Your resume is anonymized before AI processing. Your personal data stays on your device. We never sell your data. Period.</p>
+        </div>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>Account Information</h3>
+        <p>When you create an account, we collect your email address and display name. This is used for authentication and to personalize your experience.</p>
+
+        <h3>Resume Data</h3>
+        <p>When you upload or paste a resume for optimization, the text is processed on your device. Before any AI analysis, our on-device PII scrubber removes personal identifiers including:</p>
+        <ul>
+            <li>Full name, email address, phone number</li>
+            <li>Home address, Aadhaar number, PAN number</li>
+            <li>LinkedIn/GitHub URLs, date of birth</li>
+            <li>Family details (S/o, D/o, Father's/Mother's name)</li>
+        </ul>
+        <p>Only the anonymized professional content (skills, experience, education) is sent to our AI provider for analysis. Your original unredacted resume is stored only on your device in local storage.</p>
+
+        <h3>Interview Data</h3>
+        <p>Your interview answers, scores, and performance metrics are stored locally on your device and optionally synced to our cloud database (Supabase) for cross-device access. This data is associated with your account ID, not your personal identity.</p>
+
+        <h3>Camera & Microphone</h3>
+        <p>CareerClutch requests camera and microphone permissions for the following features:</p>
+
+        <table>
+            <tr>
+                <th>Permission</th>
+                <th>Feature</th>
+                <th>How It's Used</th>
+            </tr>
+            <tr>
+                <td><span class="badge crimson">CAMERA</span></td>
+                <td>Video Interview Mode</td>
+                <td>Records video during practice to analyze body language (eye contact, posture, expressions). Video frames are processed by AI and immediately deleted. No video is stored or transmitted.</td>
+            </tr>
+            <tr>
+                <td><span class="badge crimson">MICROPHONE</span></td>
+                <td>Voice Interview Mode</td>
+                <td>Converts your spoken answers to text using on-device speech recognition. Audio is not recorded, stored, or sent to any server.</td>
+            </tr>
+        </table>
+
+        <div class="highlight-card amber">
+            <p><strong>⚡ Camera & Mic data never leaves your device in raw form.</strong> Only extracted text (from speech) and anonymized frame snapshots (from video) are sent to our AI for analysis. Raw audio and video are never stored or transmitted.</p>
+        </div>
+
+        <h3>Usage & Analytics</h3>
+        <p>We collect anonymized usage data through Firebase Analytics to improve the app. This includes: features used, session duration, crash reports, and device type. This data cannot be used to identify you personally.</p>
+
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+            <li>Generate personalized interview questions based on your industry and role</li>
+            <li>Score and provide feedback on your interview answers</li>
+            <li>Optimize your resume against job descriptions</li>
+            <li>Analyze body language during video practice sessions</li>
+            <li>Track your progress, streaks, and skill development over time</li>
+            <li>Send practice reminders (only if you opt in)</li>
+            <li>Improve app performance and fix bugs</li>
+        </ul>
+
+        <h2>3. Third-Party Services</h2>
+        <p>CareerClutch uses the following third-party services:</p>
+
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Provider</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Gemini API</td>
+                <td>Google</td>
+                <td>AI-powered question generation, answer scoring, resume optimization, body language analysis</td>
+            </tr>
+            <tr>
+                <td>Firebase</td>
+                <td>Google</td>
+                <td>Analytics, crash reporting, push notifications</td>
+            </tr>
+            <tr>
+                <td>Supabase</td>
+                <td>Supabase Inc.</td>
+                <td>User authentication, cloud database sync</td>
+            </tr>
+            <tr>
+                <td>Google Play Billing</td>
+                <td>Google</td>
+                <td>Subscription management (PRO plan)</td>
+            </tr>
+        </table>
+
+        <p>Each provider has their own privacy policy. We only share the minimum data necessary for each service to function. Importantly, all resume data sent to Gemini is pre-anonymized — Google cannot identify the resume owner.</p>
+
+        <h2>4. Data Storage & Security</h2>
+        <ul>
+            <li>Local data is stored in an encrypted Room database on your device</li>
+            <li>Cloud-synced data is stored in Supabase with Row-Level Security (RLS) — only you can access your data</li>
+            <li>Authentication tokens are stored securely in Android DataStore</li>
+            <li>We use HTTPS for all network communications</li>
+            <li>Video frames are processed in memory and deleted immediately after analysis</li>
+        </ul>
+
+        <h2>5. Data Retention</h2>
+        <p>Your interview history and performance data are retained as long as your account exists. You can delete your data at any time:</p>
+        <ul>
+            <li>Clear local data from the app's Settings → Privacy → Clear Data</li>
+            <li>Request account deletion by emailing us (all cloud data will be permanently removed within 30 days)</li>
+        </ul>
+
+        <h2>6. Children's Privacy</h2>
+        <p>CareerClutch is designed for job seekers aged 16 and above. We do not knowingly collect data from children under 16. If you believe a child has provided us with personal information, please contact us and we will promptly delete it.</p>
+
+        <h2>7. Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Access your personal data stored in the app</li>
+            <li>Correct inaccurate information in your profile</li>
+            <li>Delete your account and all associated data</li>
+            <li>Export your interview history and reports</li>
+            <li>Opt out of analytics tracking</li>
+            <li>Withdraw camera/microphone permissions at any time via device settings</li>
+        </ul>
+
+        <h2>8. Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time. We will notify you of significant changes through the app or via email. Continued use of CareerClutch after changes constitutes acceptance of the updated policy.</p>
+
+        <h2>9. Contact Us</h2>
+        <div class="contact-card">
+            <p style="font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 12px;">Questions about your privacy?</p>
+            <p>Email: <a href="mailto:privacy@careerclutch.app">optimnetlab@gmail.com</a></p>
+            <p style="margin-top: 8px; color: var(--text-muted); font-size: 13px;">We typically respond within 48 hours.</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 CareerClutch. All rights reserved.</p>
+            <p style="margin-top: 4px;">Built with 🤖 for job seekers in India.</p>
+        </div>
+    </div>
+</body>
+</html>
