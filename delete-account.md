@@ -77,7 +77,7 @@ Once your account is deleted, it cannot be recovered. If you wish to use CareerC
 
 For questions about account deletion or data privacy:
 
-📧 **[email protected]**
+📧 **optimnetlab@gmail.com**
 
 We typically respond within 48 hours.
 
