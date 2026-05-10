@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Your Account — CareerClutch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0A12;
+            --surface: #12121E;
+            --card: #1A1A2E;
+            --border: #2A2A3E;
+            --text: #E8E8F0;
+            --text-secondary: #9090A8;
+            --text-muted: #60607A;
+            --crimson: #E94560;
+            --teal: #00D9FF;
+            --purple: #7C5CFF;
+            --amber: #FFB347;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .noise {
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb.crimson { background: var(--crimson); top: -200px; right: -100px; }
+        .glow-orb.teal { background: var(--teal); bottom: -200px; left: -100px; }
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 48px;
+        }
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--crimson), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            font-family: 'Fraunces', serif;
+        }
+        .brand-name {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .effective-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 3px solid var(--crimson);
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 15px;
+        }
+        a {
+            color: var(--teal);
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        .highlight-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .highlight-card.teal { border-left: 3px solid var(--teal); }
+        .highlight-card.amber { border-left: 3px solid var(--amber); }
+        .highlight-card.crimson { border-left: 3px solid var(--crimson); }
+        .highlight-card p { margin-bottom: 6px; }
+        .highlight-card p:last-child { margin-bottom: 0; }
+        ul {
+            color: var(--text-secondary);
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 14px;
+        }
+        ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            font-size: 15px;
+        }
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--crimson);
+            font-weight: 600;
+        }
+        ol {
+            color: var(--text-secondary);
+            padding-left: 24px;
+            margin-bottom: 14px;
+        }
+        ol li {
+            padding: 6px 0;
+            font-size: 15px;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, var(--card), var(--surface));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        .contact-card a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-card a:hover { text-decoration: underline; }
+        .footer {
+            text-align: center;
+            padding-top: 48px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .email-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--crimson), var(--purple));
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            margin: 12px 0;
+            text-decoration: none;
+        }
+        .email-cta:hover {
+            text-decoration: none;
+            opacity: 0.9;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 32px 16px 60px; }
+            h2 { font-size: 19px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="glow-orb crimson"></div>
+    <div class="glow-orb teal"></div>
+
+    <div class="container">
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <span class="brand-name">CareerClutch</span>
+        </div>
+
+        <h1>Delete Your Account</h1>
+        <p class="effective-date">Effective Date: May 9, 2026 &nbsp;|&nbsp; Last Updated: May 9, 2026</p>
+
+        <p>You have full control over your CareerClutch account and data. This page explains how to request account deletion and what data is removed.</p>
+
+        <h2>How to Request Account Deletion</h2>
+        <p>To delete your CareerClutch account and all associated cloud data, send an email to:</p>
+
+        <div style="text-align: center;">
+            <a href="mailto:[email protected]?subject=Account%20Deletion%20Request" class="email-cta">📧 [email protected]</a>
+        </div>
+
+        <div class="highlight-card amber">
+            <p><strong>Important: please send the email FROM the same email address you used to register your CareerClutch account.</strong> This is the fastest way for us to verify your identity and process your request.</p>
+        </div>
+
+        <h3>Include in your email</h3>
+        <ul>
+            <li>Subject line: <strong>"Account Deletion Request"</strong></li>
+            <li>The email address associated with your CareerClutch account (in the message body, even if you're emailing from that same address)</li>
+            <li>Optionally: the reason for deletion (helps us improve)</li>
+        </ul>
+
+        <h3>What happens next</h3>
+        <ol>
+            <li><strong>Identity verification:</strong> If you emailed from your registered account address, we can verify immediately. If you emailed from a different address, we will reply to your registered account email asking you to confirm the request from that address.</li>
+            <li><strong>Processing:</strong> Once verified, we will process your deletion request within <strong>7 business days</strong>.</li>
+            <li><strong>Confirmation:</strong> You will receive a confirmation email once your account and data have been deleted.</li>
+        </ol>
+
+        <p>We will never delete an account based on a request that we cannot verify came from the account owner.</p>
+
+        <h2>Clearing Local Data on Your Device</h2>
+        <p>If you want to remove only the data stored on your device (without deleting your cloud account), you can do this directly from within the app at any time:</p>
+        <ol>
+            <li>Open the CareerClutch app</li>
+            <li>Go to <strong>Profile → Clear All Data</strong></li>
+            <li>Confirm when prompted</li>
+        </ol>
+        <p>This clears local cache, interview history stored on the device, and downloaded resume drafts. Your cloud account remains active and your data on our servers is preserved. To fully delete your account, please email us as described above.</p>
+
+        <h2>What Data Is Deleted on Account Deletion</h2>
+        <p>When we process your deletion request, the following data is permanently removed from our systems:</p>
+        <ul>
+            <li><strong>Account information:</strong> name, email address, profile details</li>
+            <li><strong>Authentication credentials:</strong> passwords, OAuth tokens</li>
+            <li><strong>Interview history:</strong> all mock interview sessions, transcripts, scores, and feedback</li>
+            <li><strong>Resume content:</strong> any resumes you uploaded, parsed data, optimized drafts</li>
+            <li><strong>Practice data:</strong> streaks, progress metrics, weakness analysis, skill development history</li>
+            <li><strong>Preferences:</strong> notification settings, role preferences, target tracks</li>
+            <li><strong>Subscription records:</strong> account-linked billing history (we retain anonymized financial records as required by law)</li>
+            <li><strong>Device tokens:</strong> push notification identifiers</li>
+        </ul>
+
+        <h2>What Data May Be Retained</h2>
+        <p>Some data may be retained for limited periods even after account deletion, as required by law or for legitimate business purposes:</p>
+        <ul>
+            <li><strong>Anonymized analytics:</strong> aggregated usage data with no personally identifiable information</li>
+            <li><strong>Legal and financial records:</strong> invoice and tax records as required by Indian tax law (typically 7 years)</li>
+            <li><strong>Fraud prevention records:</strong> limited identifiers if the account was flagged for abuse</li>
+        </ul>
+        <p>This retained data cannot be linked back to you personally.</p>
+
+        <h2>Active Subscriptions</h2>
+        <p>If you have an active subscription when you request account deletion:</p>
+        <ul>
+            <li>Your subscription will not be auto-renewed</li>
+            <li>You will retain access until the end of your current billing period (per Google Play policy)</li>
+            <li>For refunds on in-app purchases, please contact Google Play Support directly — refunds are handled by Google, not by CareerClutch</li>
+        </ul>
+        <p>You can also manage or cancel your subscription independently through your Google Play account → Subscriptions.</p>
+
+        <h2>Reactivating an Account</h2>
+        <p>Once your account is deleted, it cannot be recovered. If you wish to use CareerClutch again, you will need to create a new account. Previous interview history, resumes, and progress data cannot be restored.</p>
+
+        <h2>Contact</h2>
+        <div class="contact-card">
+            <p style="font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 12px;">For questions about account deletion or data privacy:</p>
+            <p>Email: <a href="mailto:optimnetlab@gmail.com">optimnetlab@gmail.com</a></p>
+            <p style="margin-top: 8px; color: var(--text-muted); font-size: 13px;">We typically respond within 48 hours.</p>
+            <p style="margin-top: 16px; font-size: 14px;">For our complete privacy practices, see our <a href="https://careerclutch.certcoach.in/">Privacy Policy</a> and <a href="https://careerclutch.certcoach.in/terms.html">Terms of Service</a>.</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 CareerClutch. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
