@@ -132,7 +132,7 @@ You may not:
 
 ## 10. Privacy
 
-Your privacy matters. Our [Privacy Policy](https://careerclutch.yourdomain.com/) explains what data we collect, how we use it, and your rights. By using the Service, you agree to our Privacy Policy.
+Your privacy matters. Our [Privacy Policy](https://careerclutch.certcoach.in/) explains what data we collect, how we use it, and your rights. By using the Service, you agree to our Privacy Policy.
 
 ## 11. Termination
 
@@ -179,7 +179,7 @@ We may update these Terms from time to time. Material changes will be notified t
 
 ## 16. Governing Law & Disputes
 
-These Terms are governed by the laws of India, without regard to conflict of law principles. Any disputes arising out of or related to these Terms or the Service will be resolved in the courts of [Your City], India.
+These Terms are governed by the laws of India, without regard to conflict of law principles. Any disputes arising out of or related to these Terms or the Service will be resolved in the courts of [Gurgaon], India.
 
 You agree to first attempt to resolve any dispute informally by contacting us at the email below. If we cannot resolve it within 30 days, either party may pursue legal remedies.
 
