@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — CareerClutch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0A12;
+            --surface: #12121E;
+            --card: #1A1A2E;
+            --border: #2A2A3E;
+            --text: #E8E8F0;
+            --text-secondary: #9090A8;
+            --text-muted: #60607A;
+            --crimson: #E94560;
+            --teal: #00D9FF;
+            --purple: #7C5CFF;
+            --amber: #FFB347;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .noise {
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb.crimson { background: var(--crimson); top: -200px; right: -100px; }
+        .glow-orb.teal { background: var(--teal); bottom: -200px; left: -100px; }
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 48px;
+        }
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--crimson), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            font-family: 'Fraunces', serif;
+        }
+        .brand-name {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .effective-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 3px solid var(--crimson);
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 15px;
+        }
+        a {
+            color: var(--teal);
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        .highlight-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .highlight-card.teal { border-left: 3px solid var(--teal); }
+        .highlight-card.amber { border-left: 3px solid var(--amber); }
+        .highlight-card.crimson { border-left: 3px solid var(--crimson); }
+        .highlight-card p { margin-bottom: 6px; }
+        .highlight-card p:last-child { margin-bottom: 0; }
+        ul {
+            color: var(--text-secondary);
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 14px;
+        }
+        ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            font-size: 15px;
+        }
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--crimson);
+            font-weight: 600;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        table th {
+            text-align: left;
+            padding: 10px 14px;
+            background: var(--card);
+            color: var(--text);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border);
+        }
+        table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        .contact-card {
+            background: linear-gradient(135deg, var(--card), var(--surface));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        .contact-card a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-card a:hover { text-decoration: underline; }
+        .footer {
+            text-align: center;
+            padding-top: 48px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 32px 16px 60px; }
+            h2 { font-size: 19px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="glow-orb crimson"></div>
+    <div class="glow-orb teal"></div>
+
+    <div class="container">
+        <div class="brand">
+            <div class="brand-icon">C</div>
+            <span class="brand-name">CareerClutch</span>
+        </div>
+
+        <h1>Terms of Service</h1>
+        <p class="effective-date">Effective Date: May 9, 2026 &nbsp;|&nbsp; Last Updated: May 9, 2026</p>
+
+        <p>Welcome to CareerClutch. These Terms of Service ("Terms") govern your use of the CareerClutch mobile application and related services (collectively, the "Service") provided by CareerClutch ("we", "our", "us"). By creating an account or using the Service, you agree to these Terms. If you do not agree, please do not use the Service.</p>
+
+        <div class="highlight-card teal">
+            <p><strong>📋 TL;DR:</strong></p>
+            <p>CareerClutch is an AI-powered interview prep tool. You agree to use it lawfully, respect our intellectual property, and accept that AI-generated feedback is for guidance only — not a guarantee of job outcomes.</p>
+        </div>
+
+        <h2>1. Eligibility</h2>
+        <p>You must be at least 16 years old to use CareerClutch. By using the Service, you represent that you meet this age requirement and have the legal capacity to enter into these Terms. If you are using the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
+
+        <h2>2. Your Account</h2>
+        <p>To access most features, you must create an account using your email address or sign in with Google. You agree to:</p>
+        <ul>
+            <li>Provide accurate, current, and complete information</li>
+            <li>Keep your login credentials confidential</li>
+            <li>Notify us immediately of any unauthorized use of your account</li>
+            <li>Be responsible for all activity that occurs under your account</li>
+        </ul>
+        <p>We reserve the right to suspend or terminate accounts that violate these Terms, contain false information, or engage in abusive behavior.</p>
+
+        <h2>3. The Service</h2>
+        <p>CareerClutch provides AI-powered tools to help job seekers prepare for interviews and optimize their resumes. Features include:</p>
+        <ul>
+            <li>Mock interview practice (text, voice, and video modes)</li>
+            <li>AI-generated questions, scoring, and feedback</li>
+            <li>Resume parsing, optimization, and ATS-friendly templates</li>
+            <li>Body language analysis during video practice</li>
+            <li>Progress tracking, streaks, and skill development metrics</li>
+            <li>Personalized practice reminders</li>
+        </ul>
+        <p><strong>Important:</strong> CareerClutch is a preparation tool, not a job placement service. We do not guarantee interview success, job offers, or any specific career outcome. AI-generated feedback is provided for guidance and practice purposes only.</p>
+
+        <h2>4. Subscriptions & Payments</h2>
+        <p>CareerClutch offers a free tier and paid PRO subscriptions billed through Google Play.</p>
+
+        <h3>Subscription Plans</h3>
+        <table>
+            <tr>
+                <th>Plan</th>
+                <th>Price</th>
+                <th>Billing</th>
+            </tr>
+            <tr><td>PRO Monthly</td><td>₹199</td><td>Monthly, auto-renewing</td></tr>
+            <tr><td>PRO Annual</td><td>₹1,499</td><td>Yearly, auto-renewing</td></tr>
+            <tr><td>PRO+ Monthly</td><td>₹399</td><td>Monthly, auto-renewing</td></tr>
+            <tr><td>PRO+ Annual</td><td>₹2,999</td><td>Yearly, auto-renewing</td></tr>
+        </table>
+
+        <h3>One-Time Top-Ups</h3>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Grants</th>
+            </tr>
+            <tr><td>Audio Interview Top-Up</td><td>₹99</td><td>5 additional voice interview sessions</td></tr>
+            <tr><td>Video Interview Top-Up</td><td>₹149</td><td>5 additional video interview sessions</td></tr>
+        </table>
+
+        <h3>Billing Terms</h3>
+        <ul>
+            <li>All prices are in Indian Rupees (INR) and inclusive of applicable taxes unless stated otherwise</li>
+            <li>Subscriptions auto-renew at the end of each billing cycle unless cancelled at least 24 hours before renewal</li>
+            <li>You can cancel anytime through your Google Play account → Subscriptions</li>
+            <li>Payment is charged to your Google Play account at confirmation of purchase</li>
+            <li>Top-up purchases are one-time and non-refundable once the credits are granted</li>
+            <li>Pricing may change with at least 30 days' notice for active subscribers</li>
+        </ul>
+
+        <h3>Refunds</h3>
+        <p>Refunds are handled by Google Play in accordance with their refund policy. We do not directly process refunds for Play Store purchases. For consumable top-ups that have not been used due to a verifiable technical issue on our end, contact us and we will work with Google to resolve it.</p>
+
+        <h2>5. Free Trial & Promotional Offers</h2>
+        <p>We may offer free trials or promotional pricing from time to time. Unless cancelled before the trial ends, your subscription will automatically convert to a paid plan and you will be charged. Promotional offers are limited to one per user and cannot be combined with other offers.</p>
+
+        <h2>6. Acceptable Use</h2>
+        <p>You agree NOT to:</p>
+        <ul>
+            <li>Use the Service for any unlawful purpose or in violation of these Terms</li>
+            <li>Upload resumes or content containing false information for fraudulent purposes</li>
+            <li>Reverse engineer, decompile, or attempt to extract source code from the app</li>
+            <li>Use automated tools, bots, or scripts to access the Service</li>
+            <li>Share, resell, or redistribute access to your PRO subscription</li>
+            <li>Upload content that infringes intellectual property, contains malware, or violates the privacy of others</li>
+            <li>Attempt to bypass usage limits, payment systems, or technical restrictions</li>
+            <li>Use the Service to harass, defame, or harm others</li>
+            <li>Scrape, copy, or store AI-generated content for redistribution</li>
+        </ul>
+        <p>Violations may result in account suspension or termination without refund.</p>
+
+        <h2>7. Your Content</h2>
+        <p>You retain all rights to content you upload, including your resume, interview answers, and any text you provide ("Your Content").</p>
+        <p>By uploading Your Content, you grant us a limited, non-exclusive, worldwide license to:</p>
+        <ul>
+            <li>Process, store, and display Your Content within the Service</li>
+            <li>Send anonymized portions to AI providers (e.g., Gemini) for analysis as described in our Privacy Policy</li>
+            <li>Generate derivative outputs such as scores, feedback, and optimized resume drafts for your personal use</li>
+        </ul>
+        <p>We do not use Your Content to train AI models. We do not sell, license, or share Your Content with third parties for marketing or advertising purposes.</p>
+
+        <h2>8. AI-Generated Content</h2>
+        <p>CareerClutch uses generative AI (including Google's Gemini API) to produce interview questions, feedback, scoring, and resume suggestions ("AI Output").</p>
+        <p>You acknowledge that:</p>
+        <ul>
+            <li>AI Output may be inaccurate, incomplete, or biased</li>
+            <li>AI Output should not be relied upon as professional career advice, legal advice, or a substitute for human judgment</li>
+            <li>AI scoring is approximate and may not reflect actual interviewer evaluations</li>
+            <li>AI Output is generated based on patterns and may occasionally produce unexpected, irrelevant, or factually incorrect results</li>
+            <li>You are responsible for reviewing AI Output before using it (e.g., reviewing AI-optimized resume drafts before submission to employers)</li>
+        </ul>
+        <p>We continuously work to improve AI quality, but make no warranty regarding the accuracy of AI Output.</p>
+
+        <h2>9. Intellectual Property</h2>
+        <p>The CareerClutch app, branding, logos, design, and underlying technology are owned by us and protected by intellectual property laws. We grant you a limited, non-exclusive, non-transferable license to use the Service for your personal, non-commercial use.</p>
+        <p>You may not:</p>
+        <ul>
+            <li>Copy, modify, or create derivative works of our app</li>
+            <li>Use our trademarks, logos, or branding without written permission</li>
+            <li>Remove copyright or proprietary notices from any part of the Service</li>
+        </ul>
+
+        <h2>10. Privacy</h2>
+        <p>Your privacy matters. Our <a href="https://careerclutch.certcoach.in/">Privacy Policy</a> explains what data we collect, how we use it, and your rights. By using the Service, you agree to our Privacy Policy.</p>
+
+        <h2>11. Termination</h2>
+        <p>You may stop using the Service at any time and request account deletion via our <a href="https://careerclutch.certcoach.in/delete-account.html">Account Deletion page</a>.</p>
+        <p>We may suspend or terminate your access if:</p>
+        <ul>
+            <li>You violate these Terms or our Privacy Policy</li>
+            <li>We detect fraudulent activity, payment chargebacks, or abuse</li>
+            <li>Required by law or a regulatory authority</li>
+            <li>The Service is discontinued (with at least 30 days' notice where reasonably possible)</li>
+        </ul>
+        <p>Upon termination, your right to use the Service ends immediately. Sections of these Terms that by their nature should survive termination (e.g., intellectual property, disclaimers, limitations of liability) will continue to apply.</p>
+
+        <h2>12. Disclaimers</h2>
+        <p>The Service is provided "as is" and "as available." While we work hard to make CareerClutch reliable and useful, we can't make legal guarantees about it. Specifically:</p>
+        <ul>
+            <li>We don't promise the Service will always be available, uninterrupted, or error-free</li>
+            <li>We don't promise that AI-generated feedback, scores, or suggestions will be accurate, complete, or right for your situation</li>
+            <li>We don't guarantee any specific career, interview, or job outcome</li>
+            <li>We don't promise that bugs will be fixed within any specific timeframe</li>
+        </ul>
+        <p>You should treat AI Output as practice material, not professional career advice. Some jurisdictions don't allow these kinds of disclaimers, so parts of this section may not apply to you.</p>
+
+        <h2>13. Limitation of Liability</h2>
+        <p>We do our best to build a reliable, high-quality Service, but we can't promise it will be perfect. To the extent permitted by law:</p>
+        <ul>
+            <li>We are not liable for indirect losses such as lost job opportunities, lost income, lost data, or emotional distress arising from your use of the Service</li>
+            <li>Our total liability for any claim is limited to the greater of (a) the amount you paid us in the twelve months before the claim, or (b) ₹2,000</li>
+        </ul>
+        <p>This limit applies even if we knew or should have known that the loss was possible. Some jurisdictions don't allow these limits, so parts of this section may not apply to you.</p>
+
+        <h2>14. Your Responsibility for Misuse</h2>
+        <p>If someone makes a legal claim against us because of how you used the Service — for example, you uploaded content you didn't have rights to, you used CareerClutch to violate someone else's privacy, or you broke these Terms — you agree to take responsibility for that claim, including reasonable legal costs we incur in defending it.</p>
+        <p>This doesn't apply to claims caused by our own negligence or the normal operation of the Service.</p>
+
+        <h2>15. Changes to These Terms</h2>
+        <p>We may update these Terms from time to time. Material changes will be notified through the app or via email at least 14 days before they take effect. Continued use of the Service after changes constitutes acceptance of the updated Terms. If you do not agree to the changes, you must stop using the Service.</p>
+
+        <h2>16. Governing Law & Disputes</h2>
+        <p>These Terms are governed by the laws of India, without regard to conflict of law principles. Any disputes arising out of or related to these Terms or the Service will be resolved in the courts of Gurugram, India.</p>
+        <p>You agree to first attempt to resolve any dispute informally by contacting us at the email below. If we cannot resolve it within 30 days, either party may pursue legal remedies.</p>
+
+        <h2>17. Miscellaneous</h2>
+        <ul>
+            <li><strong>Severability:</strong> If any provision of these Terms is found unenforceable, the remaining provisions will remain in full force.</li>
+            <li><strong>No Waiver:</strong> Our failure to enforce any right under these Terms is not a waiver of that right.</li>
+            <li><strong>Assignment:</strong> You may not assign your rights under these Terms. We may assign ours in connection with a merger, acquisition, or sale of assets.</li>
+            <li><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the entire agreement between you and CareerClutch regarding the Service.</li>
+        </ul>
+
+        <h2>18. Contact Us</h2>
+        <div class="contact-card">
+            <p style="font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 12px;">Questions about these Terms?</p>
+            <p>Email: <a href="mailto:optimnetlab@gmail.com">optimnetlab@gmail.com</a></p>
+            <p style="margin-top: 8px; color: var(--text-muted); font-size: 13px;">We typically respond within 48 hours.</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 CareerClutch. All rights reserved.</p>
+            <p style="margin-top: 4px;">Built with 🤖 for job seekers in India.</p>
+        </div>
+    </div>
+</body>
+</html>
